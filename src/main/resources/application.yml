@@ -1,0 +1,11 @@
+
+
+
+starlify:
+  url: https://api.starlify.com
+azure:
+  server:
+    authUrl: https://login.microsoftonline.com
+    apiUrl: https://management.azure.com
+server:
+  port: 8080
