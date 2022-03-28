@@ -31,8 +31,6 @@ public class Config {
     @Bean
     @Primary
     public RestTemplate createRestTemplate() {
-        System.setProperty("jdk.tls.allowUnsafeServerCertChange", "true");
-        System.setProperty("sun.security.ssl.allowUnsafeRenegotiation", "true");
         RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder();
         return restTemplateBuilder.interceptors(
                 (HttpRequest request, byte[] body, ClientHttpRequestExecution execution) -> {
