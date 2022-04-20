@@ -1,5 +1,8 @@
 # Starlify connector for azur api gateway
-Exports the azure api details to starlify as Service, System and Flow.
+Exports the azure api details to starlify as Services and Systems
+
+
+
 
 ### command to create client credentials for azure
 az ad sp create-for-rbac --role Reader
