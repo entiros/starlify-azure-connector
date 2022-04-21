@@ -1,57 +1,54 @@
-# Starlify connector for azur api gateway
-Exports the azure api details to starlify as Services and Systems
+# Starlify connector for Azure API Gateway
+Exports Azure API Gateway details to Starlify as systems and services.
 
-
-
-
-### command to create client credentials for azure
+### Command to create client credentials for Azure
 az ad sp create-for-rbac --role Reader
 
 
 ## Dependencies
 1. Java-8 +
+2. Maven
 
 ### spring-boot-starter-web
 For exposure of connector etc. on http.
 
-
-
 ## Start
-First clone the project using below link
+Start by cloning the project by using the link below:  
 https://github.com/entiros/starlify-azure-connector-.git
 
 ## Configuration
-Make sure proper Azure api gateway and starlify url's configured properly in properties file like this
+Put the text below in your property file to configure your URL for Azure API Gateway and Starlify:
 
 ```
 starlify:
-  url: https://api.starlify.com
+	url: https://api.starlify.com
 azure:
-  server:
-    authUrl: https://login.microsoftonline.com
-    apiUrl: https://management.azure.com
+	server:
+		authUrl: https://login.microsoftonline.com
+		apiUrl: https://management.azure.com
 
 ```
 
-Go to cloned location and run below command to start the process
+Go to cloned location and run the command below to start the process:
+```
 mvn clean spring-boot:run
-
-## import azure api details to Starlify
-Use below endpoint to start importing api details to starlify as services, systems and flows
-
 ```
-	Method : POST
-	URL : http://localhost:8080/process/azure
-	Body : 
-			{
-                "clientId":"{{Azure client id}}",
-                "clientSecret":"{{Azure client secret}}",
-                "tenantId":"{{Azure tenant id}}",
-                "subscriptionId":"{{Azure subscription id}}",
-                "starlifyKey":"{{Starlify api key}}",
-                "networkId":"{{Starlify network id}}"
-            }
+
+## Import Azure API Gateway details to Starlify
+Use the endpoint below to start importing API details to Starlify as systems and services:
+```
+Method : POST
+URL : http://localhost:8080/process/azure
+Body : 
+	{
+		"clientId":"{{Azure client id}}",
+		"clientSecret":"{{Azure client secret}}",
+		"tenantId":"{{Azure tenant id}}",
+		"subscriptionId":"{{Azure subscription id}}",
+		"starlifyKey":"{{Starlify api key}}",
+		"networkId":"{{Starlify network id}}"
+	}
 ```
 
 ## Output
-After successful request submission, you should be able to see all the systems and services from azure in give starlify network.
+After successful request submission, you should be able to see all the systems and services from Azure in your Starlify network.
